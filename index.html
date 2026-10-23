@@ -1,0 +1,1044 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pesan jersi custom dengan mudah di LR APPAREL. Pilih desain, hitung estimasi harga, dan konsultasikan pesanan melalui WhatsApp.">
+  <title>LR APPAREL | Custom Jersey</title>
+
+  <style>
+    /* =========================
+       1. PENGATURAN DASAR CSS
+    ========================= */
+    :root {
+      --bg: #0b1220;
+      --panel: #131f32;
+      --panel-light: #1b2b42;
+      --accent: #a3ff12;
+      --text: #f5f7fa;
+      --muted: #a8b4c7;
+      --border: #2b3c53;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    .section {
+      padding: 72px 0;
+    }
+
+    .section-title {
+      font-size: clamp(26px, 4vw, 38px);
+      margin-bottom: 10px;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .accent {
+      color: var(--accent);
+    }
+
+    /* =========================
+       2. NAVIGASI
+    ========================= */
+    header {
+      background: rgba(11, 18, 32, 0.96);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar {
+      min-height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* =========================
+       3. TOMBOL
+    ========================= */
+    .btn {
+      display: inline-block;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 20px;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #10180a;
+    }
+
+    .btn-primary:hover {
+      background: #c0ff63;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+    }
+
+    /* =========================
+       4. BERANDA / HERO
+    ========================= */
+    .hero {
+      padding: 88px 0;
+      background:
+        radial-gradient(ellipse at top right,
+        #203a35 0%, transparent 55%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 800;
+      letter-spacing: 2px;
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 60px);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 26px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-visual {
+      min-height: 330px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 12px;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
+      border-radius: 14px;
+    }
+
+    /* =========================
+       5. KATALOG DESAIN
+    ========================= */
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .product-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: 0.2s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+    }
+
+    .product-card img {
+      display: block;
+      width: 100%;
+      height: 235px;
+      object-fit: cover;
+      background: var(--panel-light);
+    }
+
+    .product-info {
+      padding: 20px;
+    }
+
+    .product-info h3 {
+      margin-bottom: 5px;
+    }
+
+    .product-info p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .product-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .product-price {
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .product-bottom .btn {
+      padding: 9px 12px;
+      font-size: 13px;
+    }
+
+    /* =========================
+       6. FORMULIR PEMESANAN
+    ========================= */
+    .order-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    .panel h3 {
+      margin-bottom: 20px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 16px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      background: #0d1727;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* =========================
+       7. RINGKASAN BIAYA
+    ========================= */
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+      color: var(--muted);
+    }
+
+    .summary-row strong {
+      color: var(--text);
+      text-align: right;
+    }
+
+    .summary-total {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+      margin: 18px 0;
+    }
+
+    .summary-total strong {
+      color: var(--accent);
+      font-size: 21px;
+    }
+
+    .summary-note {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    .btn-block {
+      width: 100%;
+      text-align: center;
+    }
+
+    /* =========================
+       8. CARA PEMESANAN
+    ========================= */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 22px;
+      border-radius: 12px;
+    }
+
+    .step-number {
+      color: var(--accent);
+      font-size: 26px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 7px;
+    }
+
+    /* =========================
+       9. KONTAK DAN FOOTER
+    ========================= */
+    .contact-box {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 34px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 25px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* =========================
+       10. TAMPILAN MOBILE
+    ========================= */
+    @media (max-width: 800px) {
+      .hero-grid,
+      .order-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        gap: 12px;
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 55px 0;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .navbar {
+        flex-direction: column;
+        padding: 14px 0;
+        gap: 10px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .catalog-grid,
+      .form-grid,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-box {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+      }
+
+      .section {
+        padding: 48px 0;
+      }
+
+      .hero-visual,
+      .hero-visual img {
+        min-height: 240px;
+        height: 240px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGASI -->
+  <header>
+    <div class="container navbar">
+      <a href="#home" class="logo">
+        LR <span class="accent">APPAREL.</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navigasi utama">
+        <a href="#home">Beranda</a>
+        <a href="#katalog">Katalog</a>
+        <a href="#pesan">Pemesanan</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- BERANDA -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">CUSTOM JERSEY • TEAM IDENTITY</div>
+          <h1>Desain Jersi.<br><span class="accent">Identitas Tim.</span></h1>
+          <p>
+            Wujudkan jersi impian tim kamu bersama LR APPAREL.
+            Pilih desain, atur pesanan, lihat estimasi biaya,
+            dan konsultasikan kebutuhanmu dengan admin.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#katalog" class="btn btn-primary">
+              Lihat Katalog
+            </a>
+            <a href="#pesan" class="btn btn-outline">
+              Pesan Sekarang
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <img
+            src="https://placehold.co/700x500/17263b/a3ff12?text=LR+APPAREL+JERSEY"
+            alt="Contoh tampilan jersi LR APPAREL"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- KATALOG -->
+    <section class="section" id="katalog">
+      <div class="container">
+        <h2 class="section-title">Katalog <span class="accent">Desain</span></h2>
+        <p class="section-desc">
+          Pilih desain favoritmu. Harga yang tertera merupakan
+          contoh estimasi dan harus disesuaikan dengan harga usaha.
+        </p>
+
+        <div class="catalog-grid" id="catalogGrid"></div>
+      </div>
+    </section>
+
+    <!-- FORMULIR DAN RINGKASAN -->
+    <section class="section" id="pesan">
+      <div class="container">
+        <h2 class="section-title">Formulir <span class="accent">Pemesanan</span></h2>
+        <p class="section-desc">
+          Lengkapi data berikut untuk membuat ringkasan pesanan.
+        </p>
+
+        <form id="orderForm">
+          <div class="order-layout">
+            <div class="panel">
+              <h3>Data Pemesan</h3>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="nama">Nama pemesan *</label>
+                  <input id="nama" name="nama" required
+                    placeholder="Nama lengkap">
+                </div>
+
+                <div class="form-group">
+                  <label for="wa">Nomor WhatsApp *</label>
+                  <input id="wa" name="wa" type="tel"
+                    inputmode="tel" required
+                    placeholder="08xxxxxxxxxx">
+                </div>
+
+                <div class="form-group">
+                  <label for="tim">Nama tim / komunitas *</label>
+                  <input id="tim" name="tim" required
+                    placeholder="Contoh: Garuda FC">
+                </div>
+
+                <div class="form-group">
+                  <label for="desain">Desain jersi *</label>
+                  <select id="desain" name="desain" required>
+                    <option value="">Pilih desain</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="jumlah">Jumlah jersi *</label>
+                  <input id="jumlah" name="jumlah" type="number"
+                    min="1" max="500" value="20" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="bahan">Jenis bahan</label>
+                  <select id="bahan" name="bahan">
+                    <option value="Standar">Standar</option>
+                    <option value="Premium">Premium</option>
+                    <option value="Konsultasi dengan admin">
+                      Konsultasi dengan admin
+                    </option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="dp">Persentase DP *</label>
+                  <select id="dp" name="dp">
+                    <option value="50">50%</option>
+                    <option value="30">30%</option>
+                    <option value="40">40%</option>
+                    <option value="60">60%</option>
+                    <option value="70">70%</option>
+                  </select>
+                  <span class="hint">
+                    Persentase ini simulasi. Konfirmasikan kebijakan DP kepada admin.
+                  </span>
+                </div>
+
+                <div class="form-group">
+                  <label for="target">Target selesai</label>
+                  <input id="target" name="target" type="date">
+                </div>
+
+                <div class="form-group full">
+                  <label for="pemain">
+                    Daftar nama, nomor punggung, dan ukuran
+                  </label>
+                  <textarea id="pemain" name="pemain"
+                    placeholder="Contoh:
+1. Budi - No. 10 - M
+2. Andi - No. 7 - L
+3. Rian - No. 9 - XL"></textarea>
+                </div>
+
+                <div class="form-group full">
+                  <label for="catatan">Catatan tambahan</label>
+                  <textarea id="catatan" name="catatan"
+                    placeholder="Warna, logo, revisi, atau kebutuhan lainnya"></textarea>
+                </div>
+              </div>
+
+              <p class="hint">
+                * Kolom wajib diisi. Periksa kembali seluruh data
+                sebelum mengirim pesanan.
+              </p>
+            </div>
+
+            <aside class="panel">
+              <h3>Ringkasan Biaya</h3>
+
+              <div class="summary-row">
+                <span>Desain</span>
+                <strong id="ringkasanDesain">Belum dipilih</strong>
+              </div>
+
+              <div class="summary-row">
+                <span>Jumlah</span>
+                <strong id="ringkasanJumlah">20 pcs</strong>
+              </div>
+
+              <div class="summary-row">
+                <span>Harga per jersi</span>
+                <strong id="hargaSatuan">Rp100.000</strong>
+              </div>
+
+              <div class="summary-row">
+                <span>Bahan</span>
+                <strong id="ringkasanBahan">Standar</strong>
+              </div>
+
+              <div class="summary-row summary-total">
+                <span>Total estimasi</span>
+                <strong id="total">Rp2.000.000</strong>
+              </div>
+
+              <div class="summary-row">
+                <span>DP estimasi</span>
+                <strong id="nilaiDP">Rp1.000.000</strong>
+              </div>
+
+              <div class="summary-row">
+                <span>Sisa pembayaran</span>
+                <strong id="sisa">Rp1.000.000</strong>
+              </div>
+
+              <p class="summary-note">
+                Harga belum final. Biaya bahan khusus, desain custom,
+                dan pengiriman dapat memengaruhi total akhir.
+                Tunggu konfirmasi admin sebelum membayar.
+              </p>
+
+              <button class="btn btn-primary btn-block" type="submit">
+                Kirim Pesanan ke WhatsApp
+              </button>
+            </aside>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- CARA PEMESANAN -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Cara <span class="accent">Pemesanan</span></h2>
+        <p class="section-desc">
+          Empat langkah sederhana untuk memulai pesanan jersi.
+        </p>
+
+        <div class="steps">
+          <article class="step">
+            <div class="step-number">01</div>
+            <h3>Pilih Desain</h3>
+            <p>Pilih model jersi dari katalog yang tersedia.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">02</div>
+            <h3>Isi Formulir</h3>
+            <p>Masukkan data tim, jumlah, ukuran, dan catatan.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">03</div>
+            <h3>Konfirmasi</h3>
+            <p>Admin memeriksa harga, desain, dan jadwal produksi.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">04</div>
+            <h3>Produksi</h3>
+            <p>Setelah persetujuan dan DP sesuai kesepakatan, pesanan diproses.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section class="section" id="kontak">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <h2>Siap Membuat Jersi <span class="accent">Tim Kamu?</span></h2>
+            <p>
+              Hubungi admin LR APPAREL untuk konsultasi desain,
+              harga, ukuran, dan jadwal produksi.
+            </p>
+          </div>
+
+          <a id="contactButton" class="btn btn-primary"
+             href="#pesan" target="_blank" rel="noopener">
+            Hubungi Admin
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; <span id="tahun"></span> LR APPAREL.
+      Custom Jersey • All Rights Reserved.
+    </div>
+  </footer>
+
+  <script>
+    /* =========================
+       1. PENGATURAN USAHA
+       GANTI DATA DI BAGIAN INI
+    ========================= */
+
+    // Ganti dengan nomor WhatsApp admin yang benar.
+    // Gunakan kode negara 62, tanpa tanda + atau spasi.
+    const NOMOR_ADMIN = "6281234567890";
+
+    // Harga contoh. Ganti dengan harga resmi LR APPAREL.
+    const DESAIN = [
+      {
+        kode: "LR-001",
+        nama: "Velocity",
+        kategori: "Futsal / Sepak Bola",
+        harga: 100000,
+        gambar: "https://placehold.co/600x420/17263b/a3ff12?text=LR-001+VELOCITY"
+      },
+      {
+        kode: "LR-002",
+        nama: "Phantom",
+        kategori: "Futsal / Komunitas",
+        harga: 110000,
+        gambar: "https://placehold.co/600x420/202b42/ffffff?text=LR-002+PHANTOM"
+      },
+      {
+        kode: "LR-003",
+        nama: "Striker",
+        kategori: "Sepak Bola / Tim",
+        harga: 120000,
+        gambar: "https://placehold.co/600x420/293b32/a3ff12?text=LR-003+STRIKER"
+      }
+    ];
+
+    /* =========================
+       2. ELEMEN HTML
+    ========================= */
+    const form = document.getElementById("orderForm");
+    const pilihDesain = document.getElementById("desain");
+    const inputJumlah = document.getElementById("jumlah");
+    const pilihDP = document.getElementById("dp");
+    const pilihBahan = document.getElementById("bahan");
+
+    const formatRupiah = (angka) =>
+      new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR",
+        maximumFractionDigits: 0
+      }).format(angka);
+
+    /* =========================
+       3. MEMBUAT KATALOG OTOMATIS
+    ========================= */
+    const catalogGrid = document.getElementById("catalogGrid");
+
+    DESAIN.forEach((item) => {
+      const kartu = document.createElement("article");
+      kartu.className = "product-card";
+
+      const gambar = document.createElement("img");
+      gambar.src = item.gambar;
+      gambar.alt = "Contoh desain " + item.kode + " " + item.nama;
+      gambar.loading = "lazy";
+
+      const info = document.createElement("div");
+      info.className = "product-info";
+
+      const judul = document.createElement("h3");
+      judul.textContent = item.nama;
+
+      const kategori = document.createElement("p");
+      kategori.textContent = item.kode + " • " + item.kategori;
+
+      const bawah = document.createElement("div");
+      bawah.className = "product-bottom";
+
+      const harga = document.createElement("span");
+      harga.className = "product-price";
+      harga.textContent = formatRupiah(item.harga);
+
+      const tombol = document.createElement("button");
+      tombol.type = "button";
+      tombol.className = "btn btn-primary";
+      tombol.textContent = "Pilih Desain";
+
+      tombol.addEventListener("click", () => {
+        pilihDesain.value = item.kode;
+        perbaruiRingkasan();
+        document.getElementById("pesan").scrollIntoView({
+          behavior: "smooth"
+        });
+      });
+
+      bawah.append(harga, tombol);
+      info.append(judul, kategori, bawah);
+      kartu.append(gambar, info);
+      catalogGrid.appendChild(kartu);
+
+      const opsi = document.createElement("option");
+      opsi.value = item.kode;
+      opsi.textContent = item.kode + " - " + item.nama;
+      pilihDesain.appendChild(opsi);
+    });
+
+    /* =========================
+       4. MENGHITUNG HARGA
+    ========================= */
+    function perbaruiRingkasan() {
+      const desain = DESAIN.find(
+        item => item.kode === pilihDesain.value
+      );
+
+      const jumlah = Number(inputJumlah.value);
+      const persentaseDP = Number(pilihDP.value);
+
+      // Bahan khusus memerlukan konfirmasi harga admin.
+      // Untuk sementara, kalkulasi memakai harga desain dasar.
+      const hargaSatuan = desain ? desain.harga : 100000;
+      const jumlahValid = Number.isFinite(jumlah)
+        ? Math.max(0, jumlah)
+        : 0;
+
+      const total = hargaSatuan * jumlahValid;
+      const dp = Math.round(total * persentaseDP / 100);
+      const sisa = total - dp;
+
+      document.getElementById("ringkasanDesain").textContent =
+        desain ? desain.kode + " - " + desain.nama : "Belum dipilih";
+
+      document.getElementById("ringkasanJumlah").textContent =
+        jumlahValid + " pcs";
+
+      document.getElementById("hargaSatuan").textContent =
+        formatRupiah(hargaSatuan);
+
+      document.getElementById("ringkasanBahan").textContent =
+        pilihBahan.value;
+
+      document.getElementById("total").textContent =
+        formatRupiah(total);
+
+      document.getElementById("nilaiDP").textContent =
+        formatRupiah(dp);
+
+      document.getElementById("sisa").textContent =
+        formatRupiah(sisa);
+    }
+
+    [
+      pilihDesain,
+      inputJumlah,
+      pilihDP,
+      pilihBahan
+    ].forEach(elemen => {
+      elemen.addEventListener("input", perbaruiRingkasan);
+      elemen.addEventListener("change", perbaruiRingkasan);
+    });
+
+    /* =========================
+       5. MEMBUAT PESAN WHATSAPP
+    ========================= */
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      if (!form.reportValidity()) return;
+
+      if (!/^62\d{8,15}$/.test(NOMOR_ADMIN)) {
+        alert("Nomor WhatsApp admin belum diatur dengan benar.");
+        return;
+      }
+
+      const desain = DESAIN.find(
+        item => item.kode === pilihDesain.value
+      );
+
+      if (!desain) {
+        alert("Silakan pilih desain jersi terlebih dahulu.");
+        pilihDesain.focus();
+        return;
+      }
+
+      const jumlah = Number(inputJumlah.value);
+
+      if (!Number.isInteger(jumlah) || jumlah < 1 || jumlah > 500) {
+        alert("Jumlah jersi harus berupa bilangan bulat antara 1–500.");
+        inputJumlah.focus();
+        return;
+      }
+
+      const nama = document.getElementById("nama").value.trim();
+      const nomorPelanggan = document.getElementById("wa").value.trim();
+      const tim = document.getElementById("tim").value.trim();
+
+      // Pemeriksaan sederhana agar nomor pelanggan dapat dihubungi.
+      const nomorBersih = nomorPelanggan.replace(/[\s()+.-]/g, "");
+      if (!/^\d{9,16}$/.test(nomorBersih)) {
+        alert("Periksa kembali nomor WhatsApp Anda.");
+        document.getElementById("wa").focus();
+        return;
+      }
+
+      const bahan = pilihBahan.value;
+      const dpPersen = Number(pilihDP.value);
+      const target = document.getElementById("target").value || "Belum ditentukan";
+      const pemain = document.getElementById("pemain").value.trim() || "Belum diisi";
+      const catatan = document.getElementById("catatan").value.trim() || "-";
+
+      const total = desain.harga * jumlah;
+      const dp = Math.round(total * dpPersen / 100);
+      const sisa = total - dp;
+
+      const pesan = [
+        "*PEMESANAN JERSI - LR APPAREL*",
+        "",
+        "Nama pemesan: " + nama,
+        "WhatsApp pelanggan: " + nomorPelanggan,
+        "Nama tim: " + tim,
+        "Desain: " + desain.kode + " - " + desain.nama,
+        "Kategori: " + desain.kategori,
+        "Jumlah: " + jumlah + " pcs",
+        "Bahan: " + bahan,
+        "Target selesai: " + target,
+        "",
+        "*ESTIMASI BIAYA*",
+        "Harga per jersi: " + formatRupiah(desain.harga),
+        "Total estimasi: " + formatRupiah(total),
+        "DP simulasi (" + dpPersen + "%): " + formatRupiah(dp),
+        "Sisa estimasi: " + formatRupiah(sisa),
+        "",
+        "*DAFTAR PEMAIN*",
+        pemain,
+        "",
+        "Catatan: " + catatan,
+        "",
+        "Mohon konfirmasi harga final, jadwal produksi, dan instruksi pembayaran.",
+        "Saya memahami bahwa nominal di atas masih berupa estimasi."
+      ].join("\n");
+
+      const url = "https://wa.me/" + NOMOR_ADMIN +
+        "?text=" + encodeURIComponent(pesan);
+
+      window.open(url, "_blank", "noopener,noreferrer");
+    });
+
+    /* =========================
+       6. TOMBOL KONTAK ADMIN
+    ========================= */
+    document.getElementById("contactButton").addEventListener("click", function(event) {
+      if (!/^62\d{8,15}$/.test(NOMOR_ADMIN)) {
+        event.preventDefault();
+        alert("Atur nomor WhatsApp admin pada bagian JavaScript terlebih dahulu.");
+        return;
+      }
+
+      this.href = "https://wa.me/" + NOMOR_ADMIN +
+        "?text=" + encodeURIComponent(
+          "Halo LR APPAREL, saya ingin konsultasi pemesanan jersi."
+        );
+    });
+
+    /* =========================
+       7. TAHUN OTOMATIS
+    ========================= */
+    document.getElementById("tahun").textContent =
+      new Date().getFullYear();
+
+    perbaruiRingkasan();
+  </script>
+</body>
+</html>
