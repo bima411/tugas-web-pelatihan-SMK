@@ -1,0 +1,625 @@
+
+/* =========================================
+   LR APPAREL - SPORTY MODERN CSS
+   Desain jersi profesional dan responsif
+========================================= */
+
+/* 1. WARNA DAN PENGATURAN DASAR */
+:root {
+  --bg: #0b1220;
+  --bg-secondary: #101b2d;
+  --card: #152238;
+  --card-hover: #1c2d46;
+  --accent: #a3ff12;
+  --accent-hover: #c1ff5b;
+  --text: #f5f7fa;
+  --text-muted: #a8b4c7;
+  --border: #293a52;
+  --radius: 16px;
+  --transition: 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: min(1120px, 92%);
+  margin-inline: auto;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+/* 2. NAVIGASI */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11, 18, 32, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+  min-height: 76px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 700;
+  transition: color var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--accent);
+}
+
+/* 3. BAGIAN HERO / BERANDA */
+.hero {
+  position: relative;
+  padding: 90px 0;
+  background:
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(163, 255, 18, 0.12),
+      transparent 35%
+    ),
+    linear-gradient(135deg, #0b1220, #111e31);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+  margin-bottom: 22px;
+}
+
+.hero p {
+  max-width: 540px;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+.hero-visual {
+  padding: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.hero-visual img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* 4. TOMBOL SPORTY */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 22px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 800;
+  transition:
+    transform var(--transition),
+    background var(--transition),
+    border-color var(--transition);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #10180a;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(163, 255, 18, 0.15);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* 5. PENGATURAN BAGIAN */
+.section {
+  padding: 76px 0;
+}
+
+.section-title {
+  font-size: clamp(27px, 4vw, 40px);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.section-desc {
+  color: var(--text-muted);
+  max-width: 650px;
+  margin-bottom: 32px;
+}
+
+/* 6. KARTU PRODUK JERSI */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.product-card {
+  position: relative;
+  min-width: 0;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+.product-card:hover {
+  transform: translateY(-7px);
+  border-color: var(--accent);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.25);
+}
+
+.product-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  background: var(--bg-secondary);
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.04);
+}
+
+.product-info {
+  position: relative;
+  padding: 22px;
+  background: var(--card);
+}
+
+.product-info h3 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.product-info p {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+.product-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.product-price {
+  color: var(--accent);
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.product-bottom .btn {
+  padding: 10px 14px;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+/* 7. FORMULIR PEMESANAN */
+.order-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: start;
+  gap: 24px;
+}
+
+.panel {
+  min-width: 0;
+  padding: 26px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.panel h3 {
+  font-size: 21px;
+  margin-bottom: 22px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.form-group {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.form-group.full {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 13px 14px;
+  color: var(--text);
+  background: #0c1626;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #78889e;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.hint {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* 8. RINGKASAN PEMBAYARAN */
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 15px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.summary-row strong {
+  max-width: 65%;
+  color: var(--text);
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.summary-total {
+  padding: 20px 0;
+  margin: 18px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.summary-total strong {
+  color: var(--accent);
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.summary-note {
+  color: var(--text-muted);
+  font-size: 12px;
+  margin-bottom: 22px;
+}
+
+/* 9. LANGKAH PEMESANAN */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.step {
+  padding: 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: border-color var(--transition);
+}
+
+.step:hover {
+  border-color: var(--accent);
+}
+
+.step-number {
+  color: var(--accent);
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+.step h3 {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.step p {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* 10. KONTAK */
+.contact-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  padding: 36px;
+  background:
+    linear-gradient(
+      120deg,
+      rgba(163, 255, 18, 0.08),
+      transparent 70%
+    ),
+    var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.contact-box h2 {
+  font-size: clamp(23px, 3vw, 32px);
+}
+
+.contact-box p {
+  color: var(--text-muted);
+  margin-top: 10px;
+}
+
+/* 11. FOOTER */
+footer {
+  padding: 26px 0;
+  background: #080e19;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  text-align: center;
+  font-size: 13px;
+}
+
+/* 12. TABLET */
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr 0.85fr;
+    gap: 25px;
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .order-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .product-card img {
+    height: 230px;
+  }
+}
+
+/* 13. HP */
+@media (max-width: 600px) {
+  .container {
+    width: 92%;
+  }
+
+  .navbar {
+    min-height: auto;
+    padding: 16px 0;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .nav-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+  }
+
+  .hero {
+    padding: 55px 0;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .hero h1 {
+    font-size: 39px;
+  }
+
+  .hero-visual img {
+    height: 250px;
+  }
+
+  .section {
+    padding: 52px 0;
+  }
+
+  .catalog-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .product-card img {
+    height: 260px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-group.full {
+    grid-column: auto;
+  }
+
+  .panel {
+    padding: 20px;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .contact-box {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px;
+  }
+
+  .contact-box .btn {
+    width: 100%;
+  }
+
+  .product-bottom {
+    flex-wrap: wrap;
+  }
+}
+
+/* 14. AKSESIBILITAS: KURANGI ANIMASI */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
